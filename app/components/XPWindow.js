@@ -1,50 +1,64 @@
-export default function XPWindow({ title, children, className = "" }) {
+"use client";
+import { useState } from 'react';
+
+export default function XPWindow({ title, children, icon = "computer", className = "", initialPosition = { x: 0, y: 0 }, width = "w-[500px]" }) {
+    const [isMinimized, setIsMinimized] = useState(false);
+
+    if (isMinimized) {
+        return (
+            <div className="fixed bottom-0 left-0 hidden"></div> // Hidden when minimized, logic could be handled by parent state for taskbar
+        )
+    }
+
     return (
-        <div className={`flex flex-col bg-[#ece9d8] border-[3px] border-[#0055ea] rounded-t-lg rounded-b-none shadow-2xl overflow-hidden ${className}`}>
+        <div className={`flex flex-col bg-[#ECE9D8] rounded-t-lg shadow-xl border border-[#0055EA] overflow-hidden ${width} ${className} transition-all duration-200`}>
             {/* Title Bar */}
-            <div className="bg-gradient-to-r from-[#0058ee] via-[#3593ff] to-[#288eff] px-3 py-2 flex justify-between items-center shadow-[inset_0_1px_0_rgba(255,255,255,0.3)] select-none">
-                <div className="flex items-center gap-2">
-                    <span className="font-sans font-bold text-white text-shadow-sm italic text-sm md:text-base tracking-wide flex items-center gap-2">
-                        {/* Win XP Icon placeholder */}
-                        <div className="w-4 h-4 rounded-sm bg-white/20 border border-white/40 skew-y-6"></div>
-                        {title}
-                    </span>
+            <div className="bg-gradient-to-b from-[#245DDA] to-[#245DDA] via-[#225AD7] h-8 flex items-center justify-between px-2 select-none">
+                <div className="flex items-center gap-2 text-white font-bold text-shadow-sm text-sm">
+                    {/* Simple Icon Placeholder */}
+                    <div className="w-4 h-4 bg-transparent border border-white/20 rounded-sm"></div>
+                    <span className="drop-shadow-md font-sans">{title}</span>
                 </div>
-                <div className="flex items-center gap-1">
-                    <button className="w-5 h-5 md:w-6 md:h-6 bg-[#288eff] border border-white/60 rounded-[3px] shadow-[inset_0_0_2px_rgba(255,255,255,0.5)] flex items-center justify-center hover:brightness-110 active:brightness-95 group">
-                        <div className="w-2 h-0.5 bg-white shadow-[0_1px_0_rgba(0,0,0,0.3)]"></div>
+
+                <div className="flex gap-1">
+                    {/* Minimize */}
+                    <button
+                        onClick={() => setIsMinimized(true)}
+                        className="w-5 h-5 bg-[#245DDA] text-white flex items-center justify-center rounded-[3px] hover:brightness-110 active:brightness-90 border-2 border-white/30 shadow-inner"
+                        title="Minimize"
+                    >
+                        <div className="w-2 h-[2px] bg-white align-bottom mb-1"></div>
                     </button>
-                    <button className="w-5 h-5 md:w-6 md:h-6 bg-[#288eff] border border-white/60 rounded-[3px] shadow-[inset_0_0_2px_rgba(255,255,255,0.5)] flex items-center justify-center hover:brightness-110 active:brightness-95">
-                        <div className="w-2 h-2 border-[1.5px] border-white shadow-[0_1px_0_rgba(0,0,0,0.3)]"></div>
+
+                    {/* Maximize */}
+                    <button className="w-5 h-5 bg-[#245DDA] text-white flex items-center justify-center rounded-[3px] hover:brightness-110 active:brightness-90 border-2 border-white/30 shadow-inner opacity-50 cursor-default">
+                        <div className="w-2 h-2 border-[1.5px] border-white"></div>
                     </button>
-                    <button className="w-5 h-5 md:w-6 md:h-6 bg-[#e04238] border border-white/60 rounded-[3px] shadow-[inset_0_0_2px_rgba(255,255,255,0.5)] flex items-center justify-center hover:brightness-110 active:brightness-95">
-                        <span className="text-white font-bold leading-none text-xs shadow-[0_1px_0_rgba(0,0,0,0.3)]">✕</span>
+
+                    {/* Close */}
+                    <button
+                        onClick={() => setIsMinimized(true)} // Just minimize for now
+                        className="w-5 h-5 bg-[#DA3610] text-white flex items-center justify-center rounded-[3px] hover:brightness-110 active:brightness-90 border-1 border-white/40 shadow-inner ml-0.5"
+                        title="Close"
+                    >
+                        <span className="text-sm font-bold leading-none mb-0.5 ml-[1px]">×</span>
                     </button>
                 </div>
             </div>
 
-            {/* Menu Bar (Optional, keeps it authentic) */}
-            <div className="bg-[#ece9d8] border-b border-[#d1cfc0] px-3 py-1 flex items-center gap-4 text-xs font-sans text-black">
-                <span className="hover:bg-[#316ac5] hover:text-white px-2 py-0.5 cursor-pointer">File</span>
-                <span className="hover:bg-[#316ac5] hover:text-white px-2 py-0.5 cursor-pointer">Edit</span>
-                <span className="hover:bg-[#316ac5] hover:text-white px-2 py-0.5 cursor-pointer">View</span>
-                <span className="hover:bg-[#316ac5] hover:text-white px-2 py-0.5 cursor-pointer">Favorites</span>
-                <span className="hover:bg-[#316ac5] hover:text-white px-2 py-0.5 cursor-pointer">Tools</span>
-                <span className="hover:bg-[#316ac5] hover:text-white px-2 py-0.5 cursor-pointer">Help</span>
+            {/* Menu Bar (Optional, generic) */}
+            <div className="bg-[#ECE9D8] border-b border-[#D6D3CE] px-1 py-0.5 flex text-xs gap-3 text-black">
+                <span className="hover:bg-[#316AC5] hover:text-white px-1 cursor-default">File</span>
+                <span className="hover:bg-[#316AC5] hover:text-white px-1 cursor-default">Edit</span>
+                <span className="hover:bg-[#316AC5] hover:text-white px-1 cursor-default">View</span>
+                <span className="hover:bg-[#316AC5] hover:text-white px-1 cursor-default">Help</span>
             </div>
 
             {/* Content Area */}
-            <div className="flex-1 bg-white relative overflow-hidden">
-                {children}
-            </div>
-
-            {/* Status Bar */}
-            <div className="bg-[#ece9d8] border-t border-[#d1cfc0] px-3 py-1 flex justify-between items-center text-[10px] md:text-xs text-black font-sans shadow-[inset_0_1px_0_white]">
-                <span>Done</span>
-                <span className="flex items-center gap-1">
-                    <div className="w-3 h-3 bg-gray-400 rounded-full"></div>
-                    My Computer
-                </span>
+            <div className="p-1 bg-[#ECE9D8] h-full">
+                <div className="bg-white border border-[#7F9DB9] h-full p-2 overflow-auto text-black">
+                    {children}
+                </div>
             </div>
         </div>
     );

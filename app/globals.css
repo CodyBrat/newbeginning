@@ -2,11 +2,10 @@
 
 @theme {
   --font-hand: 'Gloria Hallelujah', cursive;
-  --font-sans: 'Inter', sans-serif;
-  --color-paper: #fdfbf7;
-  --color-highlight: #fff000;
-  --color-dark: #1a1a1a;
-  --shadow-paper: 2px 2px 10px rgba(0,0,0,0.1), 0 0 2px rgba(0,0,0,0.05);
+  --font-sans: 'Tahoma', 'Verdana', sans-serif;
+  --font-mono: 'Consolas', 'Courier New', monospace;
+  --color-xp-blue: #245DDA;
+  --color-xp-bg: #ECE9D8;
 }
 
 .cutout-edges {
