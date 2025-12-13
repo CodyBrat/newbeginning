@@ -22,207 +22,153 @@ export default function Home() {
         </div>
       </nav>
 
-      <div className="w-full max-w-[1200px] min-h-[1400px] paper-sheet p-8 md:p-12 text-zinc-900 relative shadow-2xl skew-x-[0.2deg] rotate-[0.5deg] animate-land duration-700 mt-12 mb-12">
+      <div className="w-full max-w-[1600px] min-h-screen paper-sheet mx-auto p-12 lg:p-24 text-zinc-900 relative shadow-2xl animate-land duration-1000 my-12 bg-[#fdfbf7]">
 
-        {/* ID CARD HEADER (The "Aravindh A" Look - REFINED) */}
-        <header className="id-card w-full max-w-4xl mx-auto p-8 mb-24 relative bg-[#f1f1f1] border-zinc-500">
-          {/* Realistic Paperclip */}
-          <div className="paper-clip"></div>
+        {/* OPEN HEADER - Editorial Style */}
+        <header className="flex flex-col lg:flex-row gap-20 lg:gap-32 items-end mb-32 relative">
 
-          <div className="flex flex-col md:flex-row gap-10 items-start">
-            {/* Yellow Photo Box */}
-            <div className="relative shrink-0 rotate-[-1deg] self-center md:self-start">
-              <div className="w-[180px] h-[200px] bg-[#fbbf24] border-2 border-zinc-800 p-2 shadow-sm flex items-end justify-center overflow-hidden">
-                {/* Better Placeholder */}
-                <div className="w-full h-full bg-zinc-800/10 flex items-center justify-center border border-zinc-800/20">
-                  <span className="text-6xl opacity-30">👤</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Info Section */}
-            <div className="flex-1 w-full pt-2">
-              <h1 className="text-6xl md:text-8xl font-sans font-black text-black tracking-tighter mb-4 uppercase scale-y-110">
-                Abhishek
+          {/* Left: Name & Intro */}
+          <div className="flex-1 relative z-10">
+            <div className="relative inline-block">
+              <h1 className="editorial-text text-8xl md:text-[10rem] text-black leading-[0.85] mb-6">
+                Abhi<br />shek
               </h1>
-              <p className="text-zinc-700 font-mono text-base max-w-lg leading-relaxed mb-8 border-l-4 border-yellow-400 pl-4">
-                Creative motion graphics designer. <br />From scratch designing to animation assets.
-              </p>
-
-              {/* Data Grid - Cleaner */}
-              <div className="border-2 border-zinc-800 w-full max-w-md bg-white shadow-sm">
-                <div className="flex border-b-2 border-zinc-800">
-                  <div className="w-1/3 bg-zinc-100 p-2 text-xs font-bold border-r-2 border-zinc-800 uppercase tracking-wider text-zinc-500">DOB</div>
-                  <div className="p-2 text-sm font-bold flex-1 font-mono">15.02.2001</div>
-                </div>
-                <div className="flex border-b-2 border-zinc-800">
-                  <div className="w-1/3 bg-zinc-100 p-2 text-xs font-bold border-r-2 border-zinc-800 uppercase tracking-wider text-zinc-500">Phone</div>
-                  <div className="p-2 text-sm font-bold flex-1 font-mono">+91 9326980392</div>
-                </div>
-                <div className="flex border-b-2 border-zinc-800">
-                  <div className="w-1/3 bg-zinc-100 p-2 text-xs font-bold border-r-2 border-zinc-800 uppercase tracking-wider text-zinc-500">Location</div>
-                  <div className="p-2 text-sm font-bold flex-1 font-mono">Pratapgarh, UP</div>
-                </div>
-                <div className="flex items-center p-2 bg-yellow-50">
-                  <span className="text-xs font-bold mr-2 uppercase tracking-wider text-zinc-500">Portfolio:</span>
-                  <span className="text-xs font-mono font-bold underline truncate text-blue-800">behance.net/abhibrother</span>
-                </div>
-              </div>
+              {/* Artistic Scribble */}
+              <svg className="absolute -top-10 -left-10 w-32 h-32 opacity-20 text-yellow-500" viewBox="0 0 100 100" fill="none" stroke="currentColor">
+                <path d="M20,50 Q50,0 80,50 T140,50" strokeWidth="2" />
+              </svg>
             </div>
 
-            {/* Handwritten Note (Red) */}
-            <div className="hidden lg:block w-56 rotate-[8deg] text-red-600 hand-text text-xl leading-7 absolute top-10 right-10 mix-blend-multiply opacity-90">
-              <span className="text-3xl font-bold block mb-1">NB:</span>
-              Please don&apos;t hesitate to <span className="border-2 border-red-600 rounded-[50%] px-3 py-1 inline-block rotate-[-2deg]">reach me</span> for any clarification!
-              <div className="text-4xl text-right mt-2">➿</div>
+            <p className="text-xl md:text-2xl font-sans font-light max-w-xl leading-relaxed text-zinc-600 mt-4">
+              Creating <span className="highlighter-yellow font-medium text-black">digital experiences</span> that feel human. <br />
+              Motion Graphics. UI Design. Visual Storytelling.
+            </p>
+
+            <div className="mt-12 flex items-center gap-8">
+              <a href="#contact" className="group flex items-center gap-3 text-lg font-bold uppercase tracking-widest border-b-2 border-black pb-1 hover:text-pink-600 hover:border-pink-600 transition-all">
+                Get in Touch <span className="group-hover:translate-x-2 transition-transform">→</span>
+              </a>
+              <a href="#projects" className="text-zinc-400 hover:text-black transition-colors font-mono text-sm underline decoration-dotted underline-offset-4">
+                View Selected Works
+              </a>
+            </div>
+          </div>
+
+          {/* Right: Modern Portrait */}
+          <div className="relative shrink-0 w-full md:w-[400px]">
+            <div className="aspect-[4/5] bg-zinc-100 relative overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 ease-out shadow-lg group">
+              {/* Photo Placeholder */}
+              <div className="absolute inset-0 flex items-center justify-center bg-zinc-200">
+                <span className="text-6xl opacity-20">👤</span>
+              </div>
+
+              {/* Tape Accent */}
+              <div className="tape-minimal w-32 h-8 absolute -top-3 left-1/2 -translate-x-1/2 z-10"></div>
+            </div>
+            <div className="mt-4 flex justify-between font-mono text-xs text-zinc-400 uppercase tracking-widest">
+              <span>Based in Pratapgarh</span>
+              <span>Exp. 5 Years</span>
             </div>
           </div>
         </header>
 
 
-        {/* MAIN BODY GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 relative z-10">
+        {/* WIDE GRID LAYOUT */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-24 gap-x-12 relative">
 
-          {/* LEFT COLUMN */}
-          <div className="space-y-20">
+          {/* SPINDLE - Vertical Line Element */}
+          <div className="hidden lg:block absolute top-0 left-[33%] w-px h-full bg-zinc-200 -z-0"></div>
 
-            {/* Work Experience */}
+          {/* LEFT SIDE: Context (Experience & Skills) */}
+          <div className="lg:col-span-4 space-y-24 relative z-10">
+
+            {/* Skills Minimal */}
             <section>
-              <h2 className="text-4xl font-bold mb-10 font-sans tracking-tight text-zinc-800">
-                <span className="highlighter-yellow px-1">Work Experiences</span>
-              </h2>
-
-              <div className="relative border-l-[3px] border-dotted border-zinc-300 pl-8 ml-4 space-y-12">
-                {/* Item 1 */}
-                <div className="relative group">
-                  <div className="w-4 h-4 bg-yellow-400 rounded-full border-2 border-black absolute -left-[41px] top-1.5 group-hover:scale-125 transition-transform"></div>
-                  <div className="text-xs font-bold font-mono text-zinc-400 mb-1 uppercase tracking-widest">Sep 2022 - Present</div>
-                  <h3 className="text-2xl font-bold leading-none mb-2 font-serif">Motion Graphic & UI Designer</h3>
-                  <div className="text-zinc-600 text-sm font-medium">
-                    Alpha Computer Institute <span className="align-middle ml-2 inline-block bg-green-100 text-green-800 text-[10px] font-bold px-2 py-0.5 border border-green-200 rounded uppercase tracking-wide">Full-time</span>
-                  </div>
-                </div>
-
-                {/* Item 2 */}
-                <div className="relative group">
-                  <div className="w-4 h-4 bg-white rounded-full border-2 border-black absolute -left-[41px] top-1.5 group-hover:scale-125 transition-transform"></div>
-                  <div className="text-xs font-bold font-mono text-zinc-400 mb-1 uppercase tracking-widest">Jun 2022 - Aug 2022</div>
-                  <h3 className="text-2xl font-bold leading-none mb-2 font-serif">Freelance Animator</h3>
-                  <div className="text-zinc-600 text-sm font-medium">
-                    Self Employed <span className="align-middle ml-2 inline-block bg-zinc-100 text-zinc-800 text-[10px] font-bold px-2 py-0.5 border border-zinc-200 rounded uppercase tracking-wide">Freelance</span>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* Education */}
-            <section>
-              <h2 className="text-4xl font-bold mb-10 font-sans tracking-tight text-zinc-800">
-                <span className="highlighter-yellow px-1">Education</span>
-              </h2>
-
-              <div className="relative border-l-[3px] border-dotted border-zinc-300 pl-8 ml-4 space-y-12">
-                {/* Item 1 */}
-                <div className="relative group">
-                  <div className="w-4 h-4 bg-white rounded-full border-2 border-black absolute -left-[41px] top-1.5 group-hover:scale-125 transition-transform"></div>
-                  <div className="text-xs font-bold font-mono text-zinc-400 mb-1 uppercase tracking-widest">2019 - 2022</div>
-                  <h3 className="text-2xl font-bold leading-none mb-2 font-serif">YOUTUBE & Self-Study</h3>
-                  <div className="text-zinc-600 text-sm font-medium">
-                    Video Editing & Motion Graphics <span className="highlighter-green text-xs font-bold ml-2 px-1 rounded-sm border border-green-400">CGPA 9.0</span>
-                  </div>
-                </div>
-
-                {/* Item 2 */}
-                <div className="relative group">
-                  <div className="w-4 h-4 bg-white rounded-full border-2 border-black absolute -left-[41px] top-1.5 group-hover:scale-125 transition-transform"></div>
-                  <div className="text-xs font-bold font-mono text-zinc-400 mb-1 uppercase tracking-widest">2017 - 2018</div>
-                  <h3 className="text-2xl font-bold leading-none mb-2 font-serif">Secondary School</h3>
-                  <div className="text-zinc-600 text-sm font-medium">
-                    TSNC School <span className="highlighter-green text-xs font-bold ml-2 px-1 rounded-sm border border-green-400">98%</span>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* Projects (Simplified to fit style) */}
-            <section>
-              <h2 className="text-3xl font-bold mb-6">
-                <span className="highlighter-yellow px-2">Selected Works</span>
-              </h2>
+              <h2 className="editorial-text text-3xl mb-8 opacity-40">Toolbox</h2>
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-zinc-800 h-32 rounded-lg flex items-center justify-center text-white/50 text-xs border-2 border-zinc-600 rotate-[-1deg] hover:rotate-0 transition-transform cursor-pointer shadow-md">
-                  Project A (Reel)
+                {['After Effects', 'Premiere Pro', 'Photoshop', 'Illustrator', 'Figma', 'Blender'].map(s => (
+                  <div key={s} className="minimal-card p-4 flex items-center justify-center text-center font-bold text-sm bg-white border border-zinc-100 h-24 hover:bg-zinc-50">
+                    {s}
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Experience Minimal */}
+            <section>
+              <h2 className="editorial-text text-3xl mb-8 opacity-40">Timeline</h2>
+              <div className="space-y-12 border-l border-black pl-8 ml-4">
+                <div className="relative">
+                  <div className="absolute -left-[37px] top-2 w-4 h-4 rounded-full bg-black border-4 border-white"></div>
+                  <span className="font-mono text-xs text-zinc-400 mb-2 block">2022 — Present</span>
+                  <h3 className="text-xl font-bold">Motion Designer</h3>
+                  <p className="text-zinc-500 text-sm">Alpha Computer Institute</p>
                 </div>
-                <div className="bg-zinc-800 h-32 rounded-lg flex items-center justify-center text-white/50 text-xs border-2 border-zinc-600 rotate-[1deg] hover:rotate-0 transition-transform cursor-pointer shadow-md">
-                  Project B (Case Study)
+                <div className="relative">
+                  <div className="absolute -left-[37px] top-2 w-4 h-4 rounded-full bg-white border-4 border-zinc-300"></div>
+                  <span className="font-mono text-xs text-zinc-400 mb-2 block">2022</span>
+                  <h3 className="text-xl font-bold">Freelance Animator</h3>
+                  <p className="text-zinc-500 text-sm">Remote</p>
                 </div>
+              </div>
+            </section>
+
+            {/* Note */}
+            <div className="p-8 bg-yellow-50 rotate-1 border border-yellow-100 rounded-sm">
+              <p className="hand-text text-lg text-zinc-600">
+                I believe design is intelligence made visible.
+              </p>
+            </div>
+
+          </div>
+
+
+          {/* RIGHT SIDE: The Gallery (Projects) */}
+          <div className="lg:col-span-8 space-y-32">
+
+            {/* Project 1 - Hero */}
+            <div className="group cursor-pointer">
+              <h3 className="editorial-text text-5xl mb-4 group-hover:text-pink-600 transition-colors">Brand Motion Reel</h3>
+              <div className="project-minimal aspect-video bg-zinc-900 w-full mb-4 shadow-2xl relative">
+                {/* Placeholder */}
+                <div className="absolute inset-0 flex items-center justify-center text-white/20 text-xl font-mono">VIDEO / REEL</div>
+              </div>
+              <div className="flex justify-between items-start border-t border-zinc-200 pt-4">
+                <p className="text-lg text-zinc-600 max-w-md">Comprehensive motion language and kinetic typography system for a fintech startup.</p>
+                <span className="font-mono text-xs border border-black px-2 py-1 rounded-full uppercase">Case Study</span>
+              </div>
+            </div>
+
+            {/* Project 2 */}
+            <div className="group cursor-pointer">
+              <h3 className="editorial-text text-5xl mb-4 group-hover:text-pink-600 transition-colors">Explain It Simple</h3>
+              <div className="project-minimal aspect-video bg-zinc-800 w-full mb-4 shadow-xl relative">
+                <div className="absolute inset-0 flex items-center justify-center text-white/20 text-xl font-mono">2D ANIMATION</div>
+              </div>
+              <div className="flex justify-between items-start border-t border-zinc-200 pt-4">
+                <p className="text-lg text-zinc-600 max-w-md">Educational series explaining complex crypto concepts through friendly 2D characters.</p>
+                <span className="font-mono text-xs border border-black px-2 py-1 rounded-full uppercase">Watch</span>
+              </div>
+            </div>
+
+            {/* Expertise Grid */}
+            <section>
+              <h2 className="editorial-text text-8xl opacity-10 mb-8 select-none">Expertise</h2>
+              <div className="flex flex-wrap gap-4">
+                {['UI/UX Design', 'Motion Graphics', 'Video Editing', 'Brand Identity', 'Social Media'].map(tag => (
+                  <span key={tag} className="text-2xl md:text-4xl font-light hover:font-serif transition-all cursor-default hover:text-pink-600">
+                    {tag} <span className="opacity-20 mx-2">/</span>
+                  </span>
+                ))}
               </div>
             </section>
 
           </div>
 
-          {/* RIGHT COLUMN */}
-          <div className="space-y-16">
-
-            {/* Area of Expertise (Collage) */}
-            <section>
-              <h2 className="text-3xl font-bold mb-10 text-right md:text-left">
-                <span className="highlighter-yellow px-2">Area of Expertise</span>
-              </h2>
-
-              <div className="relative h-64 w-full">
-                {/* Tape Strip: Promotional Design */}
-                <div className="absolute top-0 right-10 md:right-32 tape-strip w-48 h-12 rotate-[-5deg] shadow-md z-20 flex items-center justify-center">
-                  <span className="font-marker font-bold text-amber-900 text-lg uppercase tracking-wide">Promotional Design</span>
-                  <span className="absolute -left-2 text-2xl">📢</span>
-                </div>
-
-                {/* Red Triangle: UI Design */}
-                <div className="absolute top-16 left-10 md:left-20 w-32 h-28 filter drop-shadow-lg z-10 animate-float delay-100">
-                  <div className="shape-triangle w-full h-full flex flex-col items-center justify-end pb-2">
-                    <span className="text-3xl border-2 border-black rounded-md px-1 mb-1">UI</span>
-                    <span className="text-xs font-bold">DESIGN</span>
-                  </div>
-                </div>
-
-                {/* Blue Circle: Motion Graphics */}
-                <div className="absolute top-24 right-4 md:right-10 w-36 h-36 shape-circle bg-[#a5f3fc] rotate-6 z-0 animate-float delay-300">
-                  <div className="flex flex-col items-center leading-none">
-                    <div className="w-12 h-4 bg-black/10 mb-2 rotate-[-10deg] rounded-full"></div>
-                    <span className="font-bold text-lg">MOTION</span>
-                    <span className="font-bold text-lg">GRAPHICS</span>
-                    <span className="text-xs opacity-60 mt-1">2D/3D</span>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* Software Skills (App Icons) */}
-            <section>
-              <h2 className="text-3xl font-bold mb-8">
-                <span className="highlighter-yellow px-2">Software Skills</span>
-              </h2>
-
-              <div className="grid grid-cols-3 gap-y-8 gap-x-4 place-items-center">
-                {/* Adobe Suite & More */}
-                <AppIcon color="#00005b" label="After Effects" short="Ae" />
-                <AppIcon color="#330000" label="Premiere Pro" short="Pr" />
-                <AppIcon color="#001e36" label="Photoshop" short="Ps" />
-
-                <AppIcon color="#330000" label="Illustrator" short="Ai" />
-                <AppIcon color="#2a001e" label="InDesign" short="Id" />
-                <AppIcon color="#000" label="Figma" short="Fg" />
-
-                <AppIcon color="#ff9900" label="Blender" short="Bl" />
-                <AppIcon color="#00802b" label="Excel" short="X" />
-                <AppIcon color="#0a2540" label="Lightroom" short="Lr" />
-              </div>
-            </section>
-
-          </div>
         </div>
 
       </div>
+
 
       {/* FOOTER */}
       <footer className="w-full max-w-[1000px] mt-12 text-center pb-8 pt-8 opacity-80 hover:opacity-100 transition-opacity z-10 relative">

@@ -43,6 +43,18 @@ body {
 }
 
 /* Animations */
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.doodle-svg path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw 2s ease-out forwards 0.5s;
+}
+
 @keyframes landIn {
   0% {
     opacity: 0;
@@ -114,117 +126,63 @@ body {
   pointer-events: none; 
 }
 
-/* ID Card Header - Refined */
-.id-card {
-  background-color: #f0f0f0;
-  background-image: radial-gradient(#ccc 1px, transparent 1px);
-  background-size: 10px 10px;
-  border: 1px solid #999;
-  box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
-  transform: rotate(-2deg);
-  position: relative;
-  border-radius: 2px;
+/* Editorial Typography */
+.editorial-text {
+  font-family: 'Oswald', sans-serif; /* Strong, tall sans for impact */
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
 }
 
-.paper-clip {
-  position: absolute;
-  top: -20px;
-  left: 20px;
-  width: 25px;
-  height: 65px;
-  border: 5px solid #555;
-  border-radius: 20px;
-  z-index: 50;
-  border-bottom: none;
-  box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-  background: transparent;
+/* Minimal Card - No heavy borders */
+.minimal-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05); /* very subtle float */
+  transition: all 0.4s ease;
+  border: 1px solid rgba(0,0,0,0.03);
+}
+.minimal-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1);
 }
 
-.paper-clip::after {
-  content: '';
-  position: absolute;
-  top: 15px;
-  right: -5px; 
-  width: 25px; 
-  height: 45px;
-  border: 5px solid #555;
-  border-radius: 20px;
-  border-top: none;
-  z-index: -1;
-  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.2);
-}
-
-/* Highlighter Effects - More Realistic */
+/* Refined Highlighters - Minimal Strokes */
 .highlighter-yellow {
-  background: linear-gradient(104deg, rgba(255,255,0,0) 0%, rgba(255,247,0,0.6) 1%, rgba(255,242,0,0.8) 100%);
-  background-position: 0 0.4em;
-  background-size: 100% 0.6em; /* Bottom half only */
-  padding: 0 4px;
+  background: linear-gradient(120deg, rgba(255,247,0,0) 0%, rgba(255,247,0,0.5) 100%);
+  background-position: 0 80%;
+  background-size: 100% 0.3em; /* Thin underline style */
   background-repeat: no-repeat;
-  display: inline;
 }
 
 .highlighter-green {
-  background-color: #8ce99a;
-  padding: 0 5px;
-  border-radius: 4px 2px 8px 3px;
-  box-shadow: 2px 2px 0px rgba(0,100,0,0.1);
-  transform: rotate(-1deg);
-  display: inline-block;
-  font-family: var(--font-typewriter); 
+  background: linear-gradient(120deg, rgba(0,255,100,0) 0%, rgba(100,255,150,0.4) 100%);
+  background-position: 0 80%;
+  background-size: 100% 0.3em;
+  background-repeat: no-repeat;
+  color: #064e3b;
 }
 
-/* Collage Shapes - Better Shadows */
-.shape-triangle {
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-  background-color: #ff6b6b;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white; /* Better contrast */
-  font-weight: bold;
-  font-family: var(--font-headline);
-  filter: drop-shadow(4px 4px 6px rgba(0,0,0,0.3));
+/* Tape - Subtle */
+.tape-minimal {
+  background-color: rgba(255,255,255,0.8);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  backdrop-filter: blur(2px);
+  transform: rotate(-2deg);
 }
 
-.shape-circle {
-  background-color: #a5f3fc;
-  border-radius: 50%;
-  border: 2px solid #22d3ee;
-  box-shadow: 4px 4px 10px rgba(0,0,0,0.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #0e7490;
-}
-
-.tape-strip {
-  background-color: #fca5a5; /* Pink Tape */
-  background-image: linear-gradient(45deg, rgba(255,255,255,0.2) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2) 75%, transparent 75%, transparent);
-  background-size: 20px 20px;
-  transform: skewX(-10deg) rotate(-5deg);
-  box-shadow: 2px 4px 6px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0.9;
-}
-
-/* App Icon Style - Fixed Contrast */
-.app-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  color: white !important; /* Force white text */
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2), inset 0 2px 2px rgba(255,255,255,0.3);
+/* Project Thumbnail Frame */
+.project-minimal {
   position: relative;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-  border: 1px solid rgba(0,0,0,0.1);
+  overflow: hidden;
+  border-radius: 2px;
+}
+.project-minimal img {
+  transition: transform 0.7s cubic-bezier(0.2, 1, 0.3, 1);
+}
+.project-minimal:hover img {
+  transform: scale(1.03);
 }
 .app-icon::before {
   content: '';
