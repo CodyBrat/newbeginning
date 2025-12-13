@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Kalam:wght@300;400;700&family=Permanent+Marker&family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Kalam:wght@300;400;700&family=Permanent+Marker&family=Shadows+Into+Light&family=Rubik+Doodle+Shadow&family=Indie+Flower&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -19,21 +19,22 @@
   --tape-shadow: rgba(0, 0, 0, 0.1);
   
   /* Fonts */
-  --font-headline: 'Anton', sans-serif;
-  --font-handwriting: 'Kalam', cursive;
+  --font-headline: 'Rubik Doodle Shadow', system-ui; /* Updated to Doodle font */
+  --font-handwriting: 'Indie Flower', cursive;       /* Updated to cleaner handwriting */
   --font-marker: 'Permanent Marker', cursive;
   --font-typewriter: 'Courier Prime', monospace;
 }
 
 body {
-  background-color: #222;
-  background-image: 
-    radial-gradient(#333 1px, transparent 1px),
-    radial-gradient(#333 1px, transparent 1px);
-  background-size: 20px 20px;
-  background-position: 0 0, 10px 10px;
+  background-color: #1a0b2e;
+  background-image: url('/background.gif');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
   color: var(--ink-black);
-  font-family: var(--font-typewriter);
+  font-family: var(--font-handwriting);
+  font-size: 1.1rem;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -76,12 +77,18 @@ body {
 .delay-200 { animation-delay: 200ms; }
 .delay-300 { animation-delay: 300ms; }
 .delay-500 { animation-delay: 500ms; }
+/* Stagger delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-700 { animation-delay: 700ms; }
 
 .paper-sheet {
   background-color: var(--paper-bg);
+  /* Blueprint Grid Pattern */
   background-image: 
-    linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+    radial-gradient(#ccc 1px, transparent 1px);
   background-size: 20px 20px;
   box-shadow: 
     0 1px 1px rgba(0,0,0,0.15),
@@ -89,21 +96,159 @@ body {
     0 10px 1px -4px rgba(0,0,0,0.15),
     0 20px 0 -10px #eee,
     0 20px 1px -9px rgba(0,0,0,0.15),
-    5px 5px 15px rgba(0,0,0,0.1); /* Deep ambient shadow */
+    5px 5px 15px rgba(0,0,0,0.1); 
   position: relative;
   transition: transform 0.3s ease;
+  border-radius: 2px 5px 3px 6px; 
 }
 
 .tape {
-  background-color: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   backdrop-filter: blur(2px);
   position: absolute;
-  z-index: 20; /* Tape always on top */
+  z-index: 20;
   transform: rotate(-2deg);
   border-left: 2px dashed rgba(0,0,0,0.05);
   border-right: 2px dashed rgba(0,0,0,0.05);
-  pointer-events: none; /* Can't click tape */
+  pointer-events: none; 
+}
+
+/* ID Card Header - Refined */
+.id-card {
+  background-color: #f0f0f0;
+  background-image: radial-gradient(#ccc 1px, transparent 1px);
+  background-size: 10px 10px;
+  border: 1px solid #999;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+  transform: rotate(-2deg);
+  position: relative;
+  border-radius: 2px;
+}
+
+.paper-clip {
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  width: 25px;
+  height: 65px;
+  border: 5px solid #555;
+  border-radius: 20px;
+  z-index: 50;
+  border-bottom: none;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  background: transparent;
+}
+
+.paper-clip::after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  right: -5px; 
+  width: 25px; 
+  height: 45px;
+  border: 5px solid #555;
+  border-radius: 20px;
+  border-top: none;
+  z-index: -1;
+  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Highlighter Effects - More Realistic */
+.highlighter-yellow {
+  background: linear-gradient(104deg, rgba(255,255,0,0) 0%, rgba(255,247,0,0.6) 1%, rgba(255,242,0,0.8) 100%);
+  background-position: 0 0.4em;
+  background-size: 100% 0.6em; /* Bottom half only */
+  padding: 0 4px;
+  background-repeat: no-repeat;
+  display: inline;
+}
+
+.highlighter-green {
+  background-color: #8ce99a;
+  padding: 0 5px;
+  border-radius: 4px 2px 8px 3px;
+  box-shadow: 2px 2px 0px rgba(0,100,0,0.1);
+  transform: rotate(-1deg);
+  display: inline-block;
+  font-family: var(--font-typewriter); 
+}
+
+/* Collage Shapes - Better Shadows */
+.shape-triangle {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  background-color: #ff6b6b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* Better contrast */
+  font-weight: bold;
+  font-family: var(--font-headline);
+  filter: drop-shadow(4px 4px 6px rgba(0,0,0,0.3));
+}
+
+.shape-circle {
+  background-color: #a5f3fc;
+  border-radius: 50%;
+  border: 2px solid #22d3ee;
+  box-shadow: 4px 4px 10px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #0e7490;
+}
+
+.tape-strip {
+  background-color: #fca5a5; /* Pink Tape */
+  background-image: linear-gradient(45deg, rgba(255,255,255,0.2) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2) 75%, transparent 75%, transparent);
+  background-size: 20px 20px;
+  transform: skewX(-10deg) rotate(-5deg);
+  box-shadow: 2px 4px 6px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+}
+
+/* App Icon Style - Fixed Contrast */
+.app-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  color: white !important; /* Force white text */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2), inset 0 2px 2px rgba(255,255,255,0.3);
+  position: relative;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  border: 1px solid rgba(0,0,0,0.1);
+}
+.app-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.2), transparent);
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.polaroid {
+  background: #fff;
+  padding: 10px 10px 30px 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+  transform: rotate(-3deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  z-index: 10;
 }
 
 .marker-text {
@@ -112,6 +257,7 @@ body {
 
 .hand-text {
   font-family: var(--font-handwriting);
+  font-weight: 700;
 }
 
 .type-text {
@@ -120,7 +266,6 @@ body {
 
 .headline-text {
   font-family: var(--font-headline);
-  text-transform: uppercase;
 }
 
 /* Specific component styles */
@@ -136,7 +281,7 @@ body {
 }
 
 .interactive-card:hover {
-  transform: translateY(-5px) scale(1.02) rotate(0deg) !important; /* Straighten on hover */
+  transform: translateY(-5px) scale(1.02) rotate(0deg) !important;
   box-shadow: 0 15px 30px -5px rgba(0,0,0,0.2);
   z-index: 10;
 }
@@ -153,4 +298,53 @@ body {
   box-shadow: 5px 15px 25px rgba(0,0,0,0.2);
   z-index: 30;
   animation: wiggle 0.4s ease-in-out; 
+}
+
+/* Nav & Project Additions */
+.nav-strip {
+  background: #f4f4f5;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+  /* Jagged bottom edge effect using clip-path could be complex here, 
+     using a simple irregular border-radius for now or CSS mask if possible. 
+     Let's stick to a "torn" look via distinct rotation and texture. */
+  transform: rotate(-0.5deg);
+  border-bottom: 2px dashed #ccc;
+}
+
+.nav-link {
+  position: relative;
+  text-decoration: none;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,10 Q50,20 100,10' stroke='%23ec4899' stroke-width='4' fill='none' /%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.nav-link:hover::after {
+  opacity: 1;
+}
+
+.project-frame {
+  background: white;
+  padding: 12px 12px 40px 12px; /* Bottom padding for caption space like polaroid */
+  box-shadow: 2px 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.project-frame:hover {
+  transform: scale(1.03) rotate(0deg);
+  z-index: 20;
+  box-shadow: 5px 10px 20px rgba(0,0,0,0.2);
 }
